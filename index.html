@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/simmer.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simmer — Find your next favorite meal</title>
+    <meta
+      name="description"
+      content="Simmer is a free recipe finder — search hundreds of dishes by name, category, or main ingredient, or shuffle random meals. Powered by TheMealDB."
+    />
+    <meta name="theme-color" content="#faf5ee" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      // Apply the saved (or system) theme before first paint to avoid a flash.
+      (function () {
+        var theme;
+        try {
+          theme = localStorage.getItem("theme");
+        } catch (e) {
+          theme = null;
+        }
+        if (theme !== "light" && theme !== "dark") {
+          theme = window.matchMedia("(prefers-color-scheme: light)").matches
+            ? "light"
+            : "dark";
+        }
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
