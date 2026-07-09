@@ -1,75 +1,68 @@
-# React + TypeScript + Vite
+<div align="center">
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Simmer
 
-Currently, two official plugins are available:
+**Find your next favorite meal.**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+[![React](https://img.shields.io/badge/React-19-149ECA?logo=react&logoColor=white)](https://react.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
+[![TheMealDB](https://img.shields.io/badge/API-TheMealDB-c9502e)](https://www.themealdb.com/api.php)
 
-## React Compiler
+A live demo by [David Guijosa](https://www.zntsns.com) · part of the
+[portfolio](../../README.md) · served at `/recipes/`
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+</div>
 
-## Expanding the ESLint configuration
+![Simmer home](../../docs/simmer/home.jpg)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Simmer is a standalone **recipe finder** with its own warm, editorial identity,
+powered by the free [TheMealDB](https://www.themealdb.com/api.php) API. Search
+hundreds of dishes, browse by category or ingredient, or let the pot decide.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Features
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- **Four ways to search** — by name, by category (browse the bubbles), by main
+  ingredient (with an autocomplete of every ingredient), or **shuffle** random
+  meals.
+- **Full recipe view** — a photo header, tag chips, a **check-off ingredient
+  list**, and numbered **method steps** (cleaned of TheMealDB's inconsistent
+  `STEP 1` / `1.` prefixes), plus YouTube & source links.
+- **Pagination** — 16 results per page with a tidy pager.
+- **Light / dark theme** — warm cream by day, espresso by night; remembers your
+  choice.
+- **Loading & empty states**, keyboard-accessible modal, `prefers-reduced-motion`
+  support.
 
+<table>
+  <tr>
+    <td width="50%"><img src="../../docs/simmer/home.jpg" alt="Search & random meals"><p align="center"><em>Search modes & random picks</em></p></td>
+    <td width="50%"><img src="../../docs/simmer/recipe.jpg" alt="Full recipe view"><p align="center"><em>Full recipe — ingredients & method</em></p></td>
+  </tr>
+</table>
+
+---
+
+## Tech
+
+- React 19 + TypeScript (strict)
+- A tiny typed [`api.ts`](api.ts) client wrapping TheMealDB endpoints
+  (`search.php`, `filter.php`, `lookup.php`, `random.php`, `categories.php`,
+  `list.php`)
+- Hand-written CSS (`Fraunces` display serif + `Inter`), no UI framework
+
+## Run it
+
+It's part of the portfolio monorepo:
+
+```bash
+npm install
+npm run dev
+# then open http://localhost:5173/recipes/
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Credits
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
+Recipe data & photography from [TheMealDB](https://www.themealdb.com) (free
+test API). Simmer is a portfolio demo and not affiliated with TheMealDB.
