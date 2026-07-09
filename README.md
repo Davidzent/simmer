@@ -9,11 +9,11 @@
 [![TheMealDB](https://img.shields.io/badge/API-TheMealDB-c9502e)](https://www.themealdb.com/api.php)
 
 A live demo by [David Guijosa](https://www.zntsns.com) · part of the
-[portfolio](../../README.md) · served at `/recipes/`
+[portfolio](./README.md) · served at `/recipes/`
 
 </div>
 
-![Simmer home](../../docs/simmer/home.jpg)
+![Simmer home](./docs/home.jpg)
 
 Simmer is a standalone **recipe finder** with its own warm, editorial identity,
 powered by the free [TheMealDB](https://www.themealdb.com/api.php) API. Search
@@ -37,8 +37,8 @@ hundreds of dishes, browse by category or ingredient, or let the pot decide.
 
 <table>
   <tr>
-    <td width="50%"><img src="../../docs/simmer/home.jpg" alt="Search & random meals"><p align="center"><em>Search modes & random picks</em></p></td>
-    <td width="50%"><img src="../../docs/simmer/recipe.jpg" alt="Full recipe view"><p align="center"><em>Full recipe — ingredients & method</em></p></td>
+    <td width="50%"><img src="./docs/home.jpg" alt="Search & random meals"><p align="center"><em>Search modes & random picks</em></p></td>
+    <td width="50%"><img src="./docs/recipe.jpg" alt="Full recipe view"><p align="center"><em>Full recipe — ingredients & method</em></p></td>
   </tr>
 </table>
 
